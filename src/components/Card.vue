@@ -1,15 +1,20 @@
 <script setup>
 import { defineProps } from "vue";
+import { useRouter } from "vue-router";
 
-const { quizes } = defineProps(["quizes"]);
+const router = useRouter();
+
+const { quiz } = defineProps(["quiz"]);
+
+const navigateToQuiz = () => {
+  router.push(`/quiz/${quiz.id}`);
+};
 </script>
 
 <template>
-  <div class="mt-12 mx-12 grid grid-cols-4 gap-4">
+  <div @click="navigateToQuiz" class="mt-12">
     <div
-      v-for="quiz in quizes"
-      :key="quiz.id"
-      class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 col-span-1"
+      class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
     >
       <a href="#">
         <img class="rounded-t-lg" :src="quiz.img" :alt="quiz.name" />
