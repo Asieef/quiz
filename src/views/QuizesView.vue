@@ -56,7 +56,7 @@ watch(search, () => {
         </div>
       </form>
     </div>
-    <div class="grid grid-cols-4 gap-6">
+    <div class="grid lg:grid-cols-4 lg:gap-6 gap-2 mx-2 lg:mx-0">
       <Card
         class="col-span-1"
         v-for="quiz in quizes"
